@@ -1,3 +1,42 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+    "extends": [
+        "next",
+        "next/core-web-vitals",
+        "next/typescript",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
+        "plugin:perfectionist/recommended-natural-legacy"
+    ],
+    "plugins": ["react", "@typescript-eslint", "prettier", "perfectionist"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": true
+    },
+    "rules": {
+        "no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "prettier/prettier": "error",
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
+        "@typescript-eslint/consistent-type-imports": [
+            "error",
+            {
+                "prefer": "type-imports",
+                "fixStyle": "inline-type-imports"
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ]
+    },
+    "ignorePatterns": ["node_modules"]
 }
