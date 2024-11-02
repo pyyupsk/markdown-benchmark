@@ -1,3 +1,4 @@
+export const markdown = `
 # Benchmark Test Document
 
 This document is designed to provide a comprehensive test for Markdown parsers.
@@ -17,10 +18,10 @@ one of the most popular markup languages.
 
 ## Features Tested
 
-- **Headings**: All levels of headings, from `#` to `######`
+- **Headings**: All levels of headings, from \`#\` to \`######\`
 - **Emphasis**: Bold, italic, and ~~strikethrough~~
 - **Lists**: Ordered, unordered, and nested lists
-- **Links and Images**: Inline links and images with `alt` text
+- **Links and Images**: Inline links and images with \`alt\` text
 - **Code Blocks**: Fenced code blocks and inline code
 - **Tables**: With different alignments
 - **Blockquotes**: Nested blockquotes
@@ -51,27 +52,27 @@ one of the most popular markup languages.
 
 ### Inline Code
 
-Here is some inline code: `const x = 42;`
+Here is some inline code: \`const x = 42;\`
 
 ### JavaScript Code Block
 
-```javascript
+\`\`\`javascript
 // JavaScript Example
 function add(a, b) {
   return a + b
 }
 console.log(add(2, 3))
-```
+\`\`\`
 
 ### Python Code Block
 
-```python
+\`\`\`python
 # Python Example
 def add(a, b):
     return a + b
 
 print(add(2, 3))
-```
+\`\`\`
 
 ---
 
@@ -142,7 +143,7 @@ non quam.
 
     - Sub-subitem 1.2.1
 
-      ```json
+      \`\`\`json
       {
         "name": "Nested JSON",
         "items": [1, 2, 3],
@@ -150,7 +151,7 @@ non quam.
           "key": "value"
         }
       }
-      ```
+      \`\`\`
 
   - Subitem 1.3
 
@@ -164,3 +165,4 @@ This document serves as a robust test for Markdown parsers, allowing for a wide
 range of Markdown elements and nested structures. Each parser's output should
 ideally be identical, both in structure and in performance for a comprehensive
 comparison.
+`

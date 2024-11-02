@@ -1,5 +1,4 @@
 import { NUM_ITERATIONS, WARM_UP_ITERATIONS } from '@/constants/benchmark'
-import fs from 'fs'
 import { marked } from 'marked'
 import { micromark } from 'micromark'
 import {
@@ -16,6 +15,8 @@ import showdown from 'showdown'
 import snarkdown from 'snarkdown'
 import { unified } from 'unified'
 import { z } from 'zod'
+
+import { markdown } from './markdown'
 
 const parsersList = [
     'remark-parse',
@@ -70,15 +71,6 @@ function calculateStandardDeviation(values: number[]): number {
     )
 }
 
-async function getMarkdownFileContent(filePath: string): Promise<string> {
-    try {
-        return fs.readFileSync(filePath, 'utf-8')
-    } catch (error) {
-        console.error('Error reading markdown file:', error)
-        throw new Error('Failed to read the markdown file.')
-    }
-}
-
 async function benchmarkParsers(markdown: string): Promise<BenchmarkResult[]> {
     const parsers = [
         { fn: () => marked(markdown), name: 'marked' },
@@ -126,9 +118,6 @@ async function benchmarkParsers(markdown: string): Promise<BenchmarkResult[]> {
     return results.sort((a, b) => a.duration - b.duration) as BenchmarkResult[]
 }
 
-export async function runBenchmark(
-    filePath = 'src/lib/markdown.md',
-): Promise<BenchmarkResult[]> {
-    const markdown = await getMarkdownFileContent(filePath)
+export async function runBenchmark(): Promise<BenchmarkResult[]> {
     return benchmarkParsers(markdown)
 }
